@@ -42,3 +42,14 @@ For classification, due to the imbalanced class distribution, **weighted Cross E
 - Recall: 0.62  
 
 Regression, on the other hand, struggled with the uneven distribution of ratings, even when applying a **WeightedRandomSampler** to oversample underrepresented ratings. This led to less accurate predictions compared to the classification approach.
+
+
+## Model Performance
+
+| Model           | Accuracy | Precision | Recall | F1 Score |
+|-----------------|----------|-----------|--------|----------|
+| BERT-base       |          |           |        |          |
+| BERT-large      |          |           |        |          |
+| RoBERTa-base    |          |           |        |          |
+| RoBERTa-large   |          |           |        |          |
+
