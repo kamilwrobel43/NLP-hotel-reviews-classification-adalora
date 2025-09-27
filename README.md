@@ -53,3 +53,8 @@ Regression, on the other hand, struggled with the uneven distribution of ratings
 | RoBERTa-base    |          |           |        |          |
 | RoBERTa-large   |          |           |        |          |
 
+
+## Future Improvements / Notes
+
+- For regression, one possible improvement is to use a **weighted MSE loss** to better handle the imbalanced distribution of ratings.    
+- Hyperparameter tuning, such as number of layers to unfreeze, max_length could further optimize results 
