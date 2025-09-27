@@ -31,3 +31,14 @@ This approach helps stabilize training, prevents catastrophic forgetting of pre-
 - Flexible support for both classification and regression targets.  
 - Weighted loss or oversampling to handle imbalanced datasets.  
 - Modular design for easy experimentation with different models and training strategies.
+
+## Results
+
+In this problem, **classification performed better** than regression.  
+
+For classification, due to the imbalanced class distribution, **weighted Cross Entropy Loss** was used, which helped balance the impact of underrepresented classes. The achieved metrics were:  
+- Accuracy: 0.67  
+- Precision: 0.65 
+- Recall: 0.62  
+
+Regression, on the other hand, struggled with the uneven distribution of ratings, even when applying a **WeightedRandomSampler** to oversample underrepresented ratings. This led to less accurate predictions compared to the classification approach.
