@@ -45,7 +45,7 @@ Regression, on the other hand, struggled with the uneven distribution of ratings
 
 For more details check 
 - `results_classification.ipynb` -> all metrics and confusion matrices for all 4 models
-- `testing_on_cusom_reviews.ipynb` -> comparsion on various custom reviews on 4 classification models and 1 regression
+- `testing_on_custom_reviews.ipynb` -> comparsion on various custom reviews on 4 classification models and 1 regression
 
 
 ## Model Performance
