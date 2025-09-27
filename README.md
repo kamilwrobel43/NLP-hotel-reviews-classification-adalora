@@ -43,6 +43,10 @@ For classification, due to the imbalanced class distribution, **weighted Cross E
 
 Regression, on the other hand, struggled with the uneven distribution of ratings, even when applying a **WeightedRandomSampler** to oversample underrepresented ratings. This led to less accurate predictions compared to the classification approach.
 
+For more details check 
+- `results_classification.ipynb` -> all metrics and confusion matrices for all 4 models
+- `testing_on_cusom_reviews.ipynb` -> comparsion on various custom reviews on 4 classification models and 1 regression
+
 
 ## Model Performance
 
