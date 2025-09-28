@@ -37,7 +37,7 @@ This approach helps stabilize training, prevents catastrophic forgetting of pre-
 In this problem, **classification performed better** than regression.  
 
 For classification, due to the imbalanced class distribution, **weighted Cross Entropy Loss** was used, which helped balance the impact of underrepresented classes. The achieved metrics were:  
-- Accuracy: 0.67  
+- Accuracy: 0.62  
 - Precision: 0.65 
 - Recall: 0.62  
 
@@ -52,7 +52,7 @@ For more details check
 
 | Model           | Accuracy | Precision | Recall | F1 Score |
 |-----------------|----------|-----------|--------|----------|
-| BERT-base       |          |           |        |          |
+| BERT-base       |   0.64   |    0.62   |  0.67  |   0.64   |
 | BERT-large      |          |           |        |          |
 | RoBERTa-base    |          |           |        |          |
 | RoBERTa-large   |          |           |        |          |
