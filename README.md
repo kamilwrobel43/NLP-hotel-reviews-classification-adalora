@@ -16,7 +16,7 @@ I wanted to compare Bert and Roberta performance on NLP multiclassification task
 ## Training Approach
 
 To speed up training process I decided to use AdaLoRA technique in fine-tuning large models [AdaLoRA paper](https://arxiv.org/abs/2303.10512)
-This approach helps significantly speeds up training, prevents catastrophic forgetting of pre-trained weights
+- This approach helps significantly speeds up training, prevents catastrophic forgetting of pre-trained weights
 
 ---
 
