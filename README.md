@@ -8,6 +8,8 @@ Two models were tested:
 - bert-large-uncased
 - roberta-large
 
+## Dataset
+This dataset is labeled with number of stars given with NLP opinion. You can access in here [Trip Advisor Hotel Reviews](https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews)
 
 I wanted to compare Bert and Roberta performance on NLP multiclassification task (I was also testing the regression approach - to predict float number between 1 and 5 but results were much worse, so this is the space for improvement in the future)
 
@@ -39,7 +41,7 @@ For classification, due to the imbalanced class distribution, **weighted Cross E
 Regression, on the other hand, struggled with the uneven distribution of ratings, even when applying a **WeightedRandomSampler** to oversample underrepresented ratings. This led to less accurate predictions compared to the classification approach.
 
 For more details check 
-- `results.ipynb` -> all metrics and confusion matrices for 2 models
+- `results.ipynb` -> all metrics, confusion matrices and tests on custom reviews for 2 models
 - `EDA.ipynb` -> Exploratory Dataset Analysis for this dataset
 
 
