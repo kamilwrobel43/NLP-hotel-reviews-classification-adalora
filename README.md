@@ -4,24 +4,19 @@
 
 This project aims to predict the rating a user gave to a hotel based on their textual review using NLP techniques.  
 
-Two approaches are tested:  
+Two models were tested:  
+- bert-large-uncased
+- roberta-large
 
-1. **Classification:** predicting the star rating as discrete values [1, 2, 3, 4, 5].  
-2. **Regression:** predicting the rating as a continuous value.  
 
-The main focus is on fine-tuning **BERT models** (mainly bert-base and bert-large). Roberta was also tested, but due to no significant improvement, the experiments were mainly limited to BERT.
+I wanted to compare Bert and Roberta performance on NLP multiclassification task (I was also testing the regression approach - to predict float number between 1 and 5 but results were much worse, so this is the space for improvement in the future)
 
 ---
 
 ## Training Approach
 
-The project uses **gradual unfreezing** for training, which works as follows:
-
-1. First, **all layers of the BERT model are frozen**, and only the classifier on top is trained for a few epochs.  
-2. Then, the **last few layers of the BERT backbone are unfrozen**, allowing fine-tuning of the most task-relevant layers while keeping the rest frozen.  
-3. Finally, **all layers are unfrozen** and the entire model is fine-tuned for a few more epochs.  
-
-This approach helps stabilize training, prevents catastrophic forgetting of pre-trained weights, and improves performance when fine-tuning large transformer models on smaller datasets.
+To speed up training process I decided to use AdaLoRA technique in fine-tuning large models ([AdaLoRA paper])(https://arxiv.org/abs/2303.10512)
+This approach helps significantly speeds up training, prevents catastrophic forgetting of pre-trained weights
 
 ---
 
@@ -34,31 +29,26 @@ This approach helps stabilize training, prevents catastrophic forgetting of pre-
 
 ## Results
 
-In this problem, **classification performed better** than regression.  
+In this problem, **Roberta Large was better ** than Berta Large.  
 
 For classification, due to the imbalanced class distribution, **weighted Cross Entropy Loss** was used, which helped balance the impact of underrepresented classes. The achieved metrics were:  
-- Accuracy: 0.62  
-- Precision: 0.65 
-- Recall: 0.62  
+- Accuracy: 0.67  
+- Precision: 0.63 
+- Recall: 0.66
 
 Regression, on the other hand, struggled with the uneven distribution of ratings, even when applying a **WeightedRandomSampler** to oversample underrepresented ratings. This led to less accurate predictions compared to the classification approach.
 
 For more details check 
-- `results_classification.ipynb` -> all metrics and confusion matrices for all 4 models
-- `testing_on_custom_reviews.ipynb` -> comparsion on various custom reviews on 4 classification models and 1 regression
+- `results.ipynb` -> all metrics and confusion matrices for 2 models
+- `EDA.ipynb` -> Exploratory Dataset Analysis for this dataset
 
 
 ## Model Performance
 
 | Model           | Accuracy | Precision | Recall | F1 Score |
 |-----------------|----------|-----------|--------|----------|
-| BERT-base       |   0.64   |    0.62   |  0.67  |   0.64   |
-| BERT-large      |          |           |        |          |
-| RoBERTa-base    |          |           |        |          |
-| RoBERTa-large   |          |           |        |          |
+| BERT-large      |   0.64   |    0.59   |  0.62  |   0.60   |
+| RoBERTA-large   |   0.67   |    0.63   |  0.66  |   0.64   |
 
 
-## Future Improvements / Notes
 
-- For regression, one possible improvement is to use a **weighted MSE loss** to better handle the imbalanced distribution of ratings.    
-- Hyperparameter tuning, such as number of layers to unfreeze, max_length could further optimize results 
